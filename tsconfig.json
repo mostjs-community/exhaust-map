@@ -10,8 +10,6 @@
     "sourceMap": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strict": true,
     "types": [
       "mocha",
       "node"
