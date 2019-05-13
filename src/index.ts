@@ -1,5 +1,5 @@
 /** @license MIT License (c) copyright 2018 original author or authors */
-/** @author YOU */
+/** @author usp */
 
 import { Disposable, Scheduler, Sink, Stream, Time } from '@most/types'
 import { disposeBoth, tryDispose } from '@most/disposable'
