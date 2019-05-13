@@ -1,23 +1,26 @@
-# most-package-seed
+# most-exhaust-map
 
-A starter kit for a [most/core](https://github.com/mostjs/core) package.
+```
+exhaustMap :: (a -> Stream b) -> Stream a -> Stream b
+```
 
-## What it does out of the box
+`exhaustMap` receives a map function which returns a stream, and a source stream.
+It applies the map function to the value from its source to create an internal stream, and proxies the events to the next stream.
+It skips creating internal streams until the current internal stream terminates.
 
-- Compiles TypeScript, generates typings
-- Builds CommonJS and ES2015 modules, and also UMD module (you know, for CDNs)
-- Runs tests with Mocha (and `power-assert`)
+```
+s:                -a-b-c-d-e-f-g-h-i|
+f(a):              1--2--3|
+f(e):                      1--2--3|
+f(i):                              1--2--3|
+exhaustMap(f, s): -1--2--3-1--2--3-1--2--3|
+```
 
-## How to use
+Note that `f` is not applied on `b`, `c`, `d`, `f`, `g` and `h` in this case.
 
-1. Clone (or fork) the repo.
-2. If you clone, don’t forget to change the git remote.
-3. Edit `package.json`
-   1. Search and replace `most-package-seed` with your package name of choice
-   2. Don’t forget to remove `"private": true`.
-4. Edit `README.md` for good measure.
-5. You’re ready to code.
+## Installation
 
-## What it lacks
+```
+npm install --save most-exhaust-map
+```
 
-Flow types generation is missing, even though they probably can be converted from the TS typings.
