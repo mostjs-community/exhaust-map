@@ -8,6 +8,11 @@ export default {
     sourceMap: true,
     format: 'umd',
   },
+  external: [
+    '@most/disposable',
+    '@most/prelude',
+    '@most/scheduler'
+  ],
   plugins: [
     typescript(),
     resolve(),
