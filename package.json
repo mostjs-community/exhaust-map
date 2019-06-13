@@ -1,7 +1,7 @@
 {
   "name": "most-exhaust-map",
   "description": "exhaustMap operator for Most.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "module": "lib.es2015/index.js",
   "jsnext:main": "lib.es2015/index.js",
